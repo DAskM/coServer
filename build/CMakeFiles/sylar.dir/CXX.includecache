@@ -1,0 +1,38 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/leedong/Desktop/Project/conServer/src/log.cc
+log.h
+/home/leedong/Desktop/Project/conServer/src/log.h
+map
+-
+iostream
+-
+functional
+-
+time.h
+-
+string.h
+-
+
+/home/leedong/Desktop/Project/conServer/src/log.h
+string
+-
+sstream
+-
+memory
+-
+stdint.h
+-
+list
+-
+vector
+-
+stdarg.h
+-
+
