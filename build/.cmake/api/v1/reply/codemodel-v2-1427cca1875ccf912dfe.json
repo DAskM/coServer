@@ -40,14 +40,14 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "conServer::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-conServer-Debug-b109544545a7fe6f7604.json",
+					"jsonFile" : "target-conServer-Debug-c2b30cb412e44e3af72b.json",
 					"name" : "conServer",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "test::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-test-Debug-a9fdb5d14bf67703014d.json",
+					"jsonFile" : "target-test-Debug-79245cdacdb01c340543.json",
 					"name" : "test",
 					"projectIndex" : 0
 				}

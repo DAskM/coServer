@@ -5,7 +5,8 @@ set(CMAKE_VERBOSE_MAKEFILE ON)
 set(CMAKE_CXX_FLAGS "$ENV{CXXFLAGS} -rdynamic -O0 -g -std=c++11 -Wall -Wno-deprecated -Werror -Wno-unused-function")
 
 set(LIB_SRC
-    src/log.cc)
+    src/log.cc
+    src/util.cc)
 
 add_library(conServer SHARED ${LIB_SRC})
 

@@ -12,7 +12,10 @@ int main(){
 
     logger->addAppender(file_appender);
 
-
     std::cout << "this is new log!" << std::endl;
+
+    COSERVER_LOG_INFO(logger) << "test logger";
+    COSERVER_LOG_ERROR(logger) << "test logger error";
+    COSERVER_LOG_FMT_ERROR(logger, "test logger error %s", "aa");
     return 0;
 }

@@ -3,4 +3,9 @@
 
 CMakeFiles/conServer.dir/src/log.cc.o: ../src/log.cc
 CMakeFiles/conServer.dir/src/log.cc.o: ../src/log.h
+CMakeFiles/conServer.dir/src/log.cc.o: ../src/util.h
+
+CMakeFiles/conServer.dir/src/util.cc.o: ../src/log.h
+CMakeFiles/conServer.dir/src/util.cc.o: ../src/util.cc
+CMakeFiles/conServer.dir/src/util.cc.o: ../src/util.h
 

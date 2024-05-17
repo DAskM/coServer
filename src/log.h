@@ -20,7 +20,46 @@
 #include <stdarg.h>
 #include <map>
 
+#include "util.h"
+
 namespace coServer{
+
+#define COSERVER_LOG_LEVEL(logger, level) \
+    if(logger->getLevel() <= level) \
+        coServer::LogEventWrap(coServer::LogEvent::ptr(new coServer::LogEvent(logger, level, \
+                        __FILE__, __LINE__, 0, coServer::GetThreadId(),\
+                coServer::GetFiberId(), time(0), "sylar::Thread::GetName()"))).getSS()
+
+#define COSERVER_LOG_DEBUG(logger) COSERVER_LOG_LEVEL(logger, coServer::LogLevel::DEBUG)
+
+#define COSERVER_LOG_INFO(logger) COSERVER_LOG_LEVEL(logger, coServer::LogLevel::INFO)
+
+#define COSERVER_LOG_WARN(logger) COSERVER_LOG_LEVEL(logger, coServer::LogLevel::WARN)
+
+#define COSERVER_LOG_ERROR(logger) COSERVER_LOG_LEVEL(logger, coServer::LogLevel::ERROR)
+
+#define COSERVER_LOG_FATAL(logger) COSERVER_LOG_LEVEL(logger, coServer::LogLevel::FATAL)
+
+#define COSERVER_LOG_FMT_LEVEL(logger, level, fmt, ...) \
+    if(logger->getLevel() <= level) \
+        coServer::LogEventWrap(coServer::LogEvent::ptr(new coServer::LogEvent(logger, level, \
+                        __FILE__, __LINE__, 0, coServer::GetThreadId(),\
+                coServer::GetFiberId(), time(0), "coServer::Thread::GetName()"))).getEvent()->format(fmt, __VA_ARGS__)
+
+
+#define COSERVER_LOG_FMT_DEBUG(logger, fmt, ...) COSERVER_LOG_FMT_LEVEL(logger, coServer::LogLevel::DEBUG, fmt, __VA_ARGS__)
+
+#define COSERVER_LOG_FMT_INFO(logger, fmt, ...)  COSERVER_LOG_FMT_LEVEL(logger, coServer::LogLevel::INFO, fmt, __VA_ARGS__)
+
+#define COSERVER_LOG_FMT_WARN(logger, fmt, ...)  COSERVER_LOG_FMT_LEVEL(logger, coServer::LogLevel::WARN, fmt, __VA_ARGS__)
+
+#define COSERVER_LOG_FMT_ERROR(logger, fmt, ...) COSERVER_LOG_FMT_LEVEL(logger, coServer::LogLevel::ERROR, fmt, __VA_ARGS__)
+
+#define COSERVER_LOG_FMT_FATAL(logger, fmt, ...) COSERVER_LOG_FMT_LEVEL(logger, coServer::LogLevel::FATAL, fmt, __VA_ARGS__)
+
+#define COSERVER_LOG_ROOT() coServer::LoggerMgr::GetInstance()->getRoot()
+
+#define COSERVER_LOG_NAME(name) coServer::LoggerMgr::GetInstance()->getLogger(name)
 
 class Logger;
 class LoggerManager;
