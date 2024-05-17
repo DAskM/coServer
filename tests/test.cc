@@ -5,9 +5,13 @@ int main(){
     coServer::Logger::ptr logger(new coServer::Logger);
     logger->addAppender(coServer::LogAppender::ptr(new coServer::StdoutLogAppender));
 
-    coServer::LogEvent::ptr event(new coServer::LogEvent(__FILE__, __LINE__, 0, 1, 2, time(0)));
+    coServer::FileLogAppender::ptr file_appender(new coServer::FileLogAppender("./log.txt"));
+    coServer::LogFormatter::ptr fmt(new coServer::LogFormatter("%d%T%p%T%m%n"));
+    file_appender->setFormatter(fmt);
+    file_appender->setLevel(coServer::LogLevel::ERROR);
 
-    logger->log(coServer::LogLevel::DEBUG, event);
+    logger->addAppender(file_appender);
+
 
     std::cout << "this is new log!" << std::endl;
     return 0;

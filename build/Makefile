@@ -114,17 +114,30 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named sylar
+# Target rules for targets named test
 
 # Build rule for target.
-sylar: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 sylar
-.PHONY : sylar
+test: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test
+.PHONY : test
 
 # fast build rule for target.
-sylar/fast:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/build
-.PHONY : sylar/fast
+test/fast:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/build
+.PHONY : test/fast
+
+#=============================================================================
+# Target rules for targets named conServer
+
+# Build rule for target.
+conServer: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 conServer
+.PHONY : conServer
+
+# fast build rule for target.
+conServer/fast:
+	$(MAKE) -f CMakeFiles/conServer.dir/build.make CMakeFiles/conServer.dir/build
+.PHONY : conServer/fast
 
 src/log.o: src/log.cc.o
 
@@ -132,7 +145,7 @@ src/log.o: src/log.cc.o
 
 # target to build an object file
 src/log.cc.o:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/log.cc.o
+	$(MAKE) -f CMakeFiles/conServer.dir/build.make CMakeFiles/conServer.dir/src/log.cc.o
 .PHONY : src/log.cc.o
 
 src/log.i: src/log.cc.i
@@ -141,7 +154,7 @@ src/log.i: src/log.cc.i
 
 # target to preprocess a source file
 src/log.cc.i:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/log.cc.i
+	$(MAKE) -f CMakeFiles/conServer.dir/build.make CMakeFiles/conServer.dir/src/log.cc.i
 .PHONY : src/log.cc.i
 
 src/log.s: src/log.cc.s
@@ -150,8 +163,35 @@ src/log.s: src/log.cc.s
 
 # target to generate assembly for a file
 src/log.cc.s:
-	$(MAKE) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/src/log.cc.s
+	$(MAKE) -f CMakeFiles/conServer.dir/build.make CMakeFiles/conServer.dir/src/log.cc.s
 .PHONY : src/log.cc.s
+
+tests/test.o: tests/test.cc.o
+
+.PHONY : tests/test.o
+
+# target to build an object file
+tests/test.cc.o:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/tests/test.cc.o
+.PHONY : tests/test.cc.o
+
+tests/test.i: tests/test.cc.i
+
+.PHONY : tests/test.i
+
+# target to preprocess a source file
+tests/test.cc.i:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/tests/test.cc.i
+.PHONY : tests/test.cc.i
+
+tests/test.s: tests/test.cc.s
+
+.PHONY : tests/test.s
+
+# target to generate assembly for a file
+tests/test.cc.s:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/tests/test.cc.s
+.PHONY : tests/test.cc.s
 
 # Help Target
 help:
@@ -161,10 +201,14 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... sylar"
+	@echo "... test"
+	@echo "... conServer"
 	@echo "... src/log.o"
 	@echo "... src/log.i"
 	@echo "... src/log.s"
+	@echo "... tests/test.o"
+	@echo "... tests/test.i"
+	@echo "... tests/test.s"
 .PHONY : help
 
 

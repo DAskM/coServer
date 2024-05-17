@@ -14,7 +14,8 @@
 					"source" : ".",
 					"targetIndexes" : 
 					[
-						0
+						0,
+						1
 					]
 				}
 			],
@@ -29,7 +30,8 @@
 					"name" : "conServer",
 					"targetIndexes" : 
 					[
-						0
+						0,
+						1
 					]
 				}
 			],
@@ -37,9 +39,16 @@
 			[
 				{
 					"directoryIndex" : 0,
-					"id" : "sylar::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-sylar-Debug-eaa99246aae36695d9f1.json",
-					"name" : "sylar",
+					"id" : "conServer::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-conServer-Debug-b109544545a7fe6f7604.json",
+					"name" : "conServer",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "test::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-test-Debug-a9fdb5d14bf67703014d.json",
+					"name" : "test",
 					"projectIndex" : 0
 				}
 			]

@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "/home/leedong/Desktop/Project/conServer/lib/libsylar.so"
+			"path" : "/home/leedong/Desktop/Project/conServer/lib/libconServer.so"
 		}
 	],
 	"backtrace" : 1,
@@ -41,7 +41,7 @@
 			"defines" : 
 			[
 				{
-					"define" : "sylar_EXPORTS"
+					"define" : "conServer_EXPORTS"
 				}
 			],
 			"language" : "CXX",
@@ -51,7 +51,7 @@
 			]
 		}
 	],
-	"id" : "sylar::@6890427a1f51a3e7e1df",
+	"id" : "conServer::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -63,8 +63,8 @@
 		],
 		"language" : "CXX"
 	},
-	"name" : "sylar",
-	"nameOnDisk" : "libsylar.so",
+	"name" : "conServer",
+	"nameOnDisk" : "libconServer.so",
 	"paths" : 
 	{
 		"build" : ".",
