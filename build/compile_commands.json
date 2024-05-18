@@ -1,17 +1,27 @@
 [
 {
   "directory": "/home/leedong/Desktop/Project/conServer/build",
-  "command": "/usr/bin/g++     -rdynamic -O0 -g -std=c++11 -Wall -Wno-deprecated -Werror -Wno-unused-function -g   -o CMakeFiles/test.dir/tests/test.cc.o -c /home/leedong/Desktop/Project/conServer/tests/test.cc",
+  "command": "/usr/bin/g++   -I/usr/local/include/yaml-cpp   -rdynamic -O0 -g -std=c++11 -Wall -Wno-deprecated -Werror -Wno-unused-function -g   -o CMakeFiles/test_config.dir/tests/test_config.cc.o -c /home/leedong/Desktop/Project/conServer/tests/test_config.cc",
+  "file": "/home/leedong/Desktop/Project/conServer/tests/test_config.cc"
+},
+{
+  "directory": "/home/leedong/Desktop/Project/conServer/build",
+  "command": "/usr/bin/g++   -I/usr/local/include/yaml-cpp   -rdynamic -O0 -g -std=c++11 -Wall -Wno-deprecated -Werror -Wno-unused-function -g   -o CMakeFiles/test.dir/tests/test.cc.o -c /home/leedong/Desktop/Project/conServer/tests/test.cc",
   "file": "/home/leedong/Desktop/Project/conServer/tests/test.cc"
 },
 {
   "directory": "/home/leedong/Desktop/Project/conServer/build",
-  "command": "/usr/bin/g++  -DconServer_EXPORTS   -rdynamic -O0 -g -std=c++11 -Wall -Wno-deprecated -Werror -Wno-unused-function -g -fPIC   -o CMakeFiles/conServer.dir/src/log.cc.o -c /home/leedong/Desktop/Project/conServer/src/log.cc",
+  "command": "/usr/bin/g++  -DconServer_EXPORTS -I/usr/local/include/yaml-cpp   -rdynamic -O0 -g -std=c++11 -Wall -Wno-deprecated -Werror -Wno-unused-function -g -fPIC   -o CMakeFiles/conServer.dir/src/log.cc.o -c /home/leedong/Desktop/Project/conServer/src/log.cc",
   "file": "/home/leedong/Desktop/Project/conServer/src/log.cc"
 },
 {
   "directory": "/home/leedong/Desktop/Project/conServer/build",
-  "command": "/usr/bin/g++  -DconServer_EXPORTS   -rdynamic -O0 -g -std=c++11 -Wall -Wno-deprecated -Werror -Wno-unused-function -g -fPIC   -o CMakeFiles/conServer.dir/src/util.cc.o -c /home/leedong/Desktop/Project/conServer/src/util.cc",
+  "command": "/usr/bin/g++  -DconServer_EXPORTS -I/usr/local/include/yaml-cpp   -rdynamic -O0 -g -std=c++11 -Wall -Wno-deprecated -Werror -Wno-unused-function -g -fPIC   -o CMakeFiles/conServer.dir/src/util.cc.o -c /home/leedong/Desktop/Project/conServer/src/util.cc",
   "file": "/home/leedong/Desktop/Project/conServer/src/util.cc"
+},
+{
+  "directory": "/home/leedong/Desktop/Project/conServer/build",
+  "command": "/usr/bin/g++  -DconServer_EXPORTS -I/usr/local/include/yaml-cpp   -rdynamic -O0 -g -std=c++11 -Wall -Wno-deprecated -Werror -Wno-unused-function -g -fPIC   -o CMakeFiles/conServer.dir/src/config.cc.o -c /home/leedong/Desktop/Project/conServer/src/config.cc",
+  "file": "/home/leedong/Desktop/Project/conServer/src/config.cc"
 }
 ]

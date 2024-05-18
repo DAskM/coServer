@@ -15,7 +15,8 @@
 					"targetIndexes" : 
 					[
 						0,
-						1
+						1,
+						2
 					]
 				}
 			],
@@ -31,7 +32,8 @@
 					"targetIndexes" : 
 					[
 						0,
-						1
+						1,
+						2
 					]
 				}
 			],
@@ -40,15 +42,22 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "conServer::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-conServer-Debug-c2b30cb412e44e3af72b.json",
+					"jsonFile" : "target-conServer-Debug-78434d3241bad0a1df71.json",
 					"name" : "conServer",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "test::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-test-Debug-79245cdacdb01c340543.json",
+					"jsonFile" : "target-test-Debug-c62834b036eb840e88af.json",
 					"name" : "test",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "test_config::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-test_config-Debug-25ba81f47cf8325a2aa2.json",
+					"name" : "test_config",
 					"projectIndex" : 0
 				}
 			]

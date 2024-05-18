@@ -17,5 +17,8 @@ int main(){
     COSERVER_LOG_INFO(logger) << "test logger";
     COSERVER_LOG_ERROR(logger) << "test logger error";
     COSERVER_LOG_FMT_ERROR(logger, "test logger error %s", "aa");
+
+    auto l = coServer::LoggerMgr::GetInstance()->getLogger("xx");
+    COSERVER_LOG_INFO(l) << "xxx";
     return 0;
 }

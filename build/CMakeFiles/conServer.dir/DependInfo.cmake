@@ -4,6 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/home/leedong/Desktop/Project/conServer/src/config.cc" "/home/leedong/Desktop/Project/conServer/build/CMakeFiles/conServer.dir/src/config.cc.o"
   "/home/leedong/Desktop/Project/conServer/src/log.cc" "/home/leedong/Desktop/Project/conServer/build/CMakeFiles/conServer.dir/src/log.cc.o"
   "/home/leedong/Desktop/Project/conServer/src/util.cc" "/home/leedong/Desktop/Project/conServer/build/CMakeFiles/conServer.dir/src/util.cc.o"
   )
@@ -16,6 +17,7 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
+  "/usr/local/include/yaml-cpp"
   )
 
 # Targets to which this target links.

@@ -36,22 +36,6 @@ log.h
 util.h
 /home/leedong/Desktop/Project/conServer/src/util.h
 
-/home/leedong/Desktop/Project/conServer/src/log.cc
-log.h
-/home/leedong/Desktop/Project/conServer/src/log.h
-config.h
-/home/leedong/Desktop/Project/conServer/src/config.h
-map
--
-iostream
--
-functional
--
-time.h
--
-string.h
--
-
 /home/leedong/Desktop/Project/conServer/src/log.h
 string
 -
@@ -106,5 +90,13 @@ unistd.h
 stdint.h
 -
 cxxabi.h
+-
+
+/home/leedong/Desktop/Project/conServer/tests/test_config.cc
+../src/config.h
+/home/leedong/Desktop/Project/conServer/src/config.h
+../src/log.h
+/home/leedong/Desktop/Project/conServer/src/log.h
+yaml-cpp/yaml.h
 -
 

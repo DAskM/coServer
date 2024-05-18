@@ -19,8 +19,10 @@
 #include <vector>
 #include <stdarg.h>
 #include <map>
+#include <yaml-cpp/yaml.h>
 
 #include "util.h"
+#include "singleton.h"
 
 namespace coServer{
 
@@ -179,7 +181,7 @@ public:
 
     virtual void log(std::shared_ptr<Logger> logger, LogLevel::Level level, LogEvent::ptr event) = 0;
 
-    // virtual std::string toYmalString() = 0;
+    virtual std::string toYamlString() = 0;
 
     void setFormatter(LogFormatter::ptr val);
 
@@ -231,7 +233,7 @@ public:
 
     LogFormatter::ptr getFormatter();
 
-    // std::string toYamlString();
+    std::string toYamlString();
 private:
     std::string m_name;
     LogLevel::Level m_level;
@@ -246,7 +248,7 @@ public:
     
     void log(Logger::ptr logger, LogLevel::Level level, LogEvent::ptr event) override;
 
-    // std::string toYamlString() override;
+    std::string toYamlString() override;
 };
 
 class FileLogAppender : public LogAppender{
@@ -257,7 +259,7 @@ public:
 
     void log(Logger::ptr logger, LogLevel::Level level, LogEvent::ptr event) override;
 
-    // std::string toYmalString() override;
+    std::string toYamlString() override;
 
     bool reopen();
 private:
@@ -283,6 +285,7 @@ private:
 };
 
 // 日志管理类单例模式
+typedef coServer::Singleton<LoggerManager> LoggerMgr;
 
 }
 

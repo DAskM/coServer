@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "../lib/libconServer.pdb"
   "../lib/libconServer.so"
+  "CMakeFiles/conServer.dir/src/config.cc.o"
   "CMakeFiles/conServer.dir/src/log.cc.o"
   "CMakeFiles/conServer.dir/src/util.cc.o"
 )
