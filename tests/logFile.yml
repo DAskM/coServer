@@ -5,9 +5,3 @@ logs:
           - type: FileLogAppender
             file: /home/leedong/Desktop/Project/conServer/tests/root.log
           - type: StdoutLogAppender
-    - name: system
-      level: info
-      appenders:
-          - type: FileLogAppender
-            file: /home/leedong/Desktop/Project/conServer/tests/system.log
-          - type: StdoutLogAppender

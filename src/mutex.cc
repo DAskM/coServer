@@ -1,5 +1,4 @@
 #include "mutex.h"
-#include "log.h"
 
 namespace coServer{
 

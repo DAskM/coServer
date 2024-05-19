@@ -19,13 +19,9 @@ CMakeFiles/conServer.dir/src/log.cc.o: ../src/singleton.h
 CMakeFiles/conServer.dir/src/log.cc.o: ../src/thread.h
 CMakeFiles/conServer.dir/src/log.cc.o: ../src/util.h
 
-CMakeFiles/conServer.dir/src/mutex.cc.o: ../src/log.h
 CMakeFiles/conServer.dir/src/mutex.cc.o: ../src/mutex.cc
 CMakeFiles/conServer.dir/src/mutex.cc.o: ../src/mutex.h
 CMakeFiles/conServer.dir/src/mutex.cc.o: ../src/noncopyable.h
-CMakeFiles/conServer.dir/src/mutex.cc.o: ../src/singleton.h
-CMakeFiles/conServer.dir/src/mutex.cc.o: ../src/thread.h
-CMakeFiles/conServer.dir/src/mutex.cc.o: ../src/util.h
 
 CMakeFiles/conServer.dir/src/thread.cc.o: ../src/log.h
 CMakeFiles/conServer.dir/src/thread.cc.o: ../src/mutex.h

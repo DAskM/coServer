@@ -1,5 +1,6 @@
 #include "config.h"
 #include "log.h"
+#include "util.h"
 
 #include <sys/types.h>
 #include <sys/stat.h>
@@ -10,6 +11,7 @@ namespace coServer{
 static coServer::Logger::ptr g_logger = COSERVER_LOG_NAME("system");
 
 ConfigVarBase::ptr Config::LookupBase(const std::string& name){
+    RWMutexType::ReadLock lock(GetMutex());
     auto it = GetDatas().find(name);
     return it == GetDatas().end() ? nullptr : it->second;
 }
@@ -55,7 +57,7 @@ void Config::LoadFromYaml(const YAML::Node& root){
 }
 
 void Config::Visit(std::function<void(ConfigVarBase::ptr)> cb) {
-    // RWMutexType::ReadLock lock(GetMutex());
+    RWMutexType::ReadLock lock(GetMutex());
     ConfigVarMap& m = GetDatas();
     for(auto it = m.begin();
             it != m.end(); ++it) {

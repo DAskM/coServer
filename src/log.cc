@@ -237,7 +237,7 @@ Logger::Logger(const std::string& name)
 }
 
 void Logger::setFormatter(LogFormatter::ptr val){
-    MutexType::Lock lock(LogFormatter::ptr val);
+    MutexType::Lock lock(m_mutex);
     m_formatter = val;
     for(auto& i : m_appenders){
         MutexType::Lock ll(i->m_mutex);

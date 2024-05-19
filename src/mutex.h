@@ -9,6 +9,7 @@
 #include <stdint.h>
 #include <atomic>
 #include <list>
+#include <sstream>
 
 #include "noncopyable.h"
 

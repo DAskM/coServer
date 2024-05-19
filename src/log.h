@@ -6,15 +6,6 @@
 #include <memory>
 #include <list>
 #include <sstream>
-#include <iostream>
-#include <fstream>
-#include <vector>
-
-#include <string>
-#include <stdint.h>
-#include <memory>
-#include <list>
-#include <sstream>
 #include <fstream>
 #include <vector>
 #include <stdarg.h>
@@ -29,7 +20,7 @@
     if(logger->getLevel() <= level) \
         coServer::LogEventWrap(coServer::LogEvent::ptr(new coServer::LogEvent(logger, level, \
                         __FILE__, __LINE__, 0, coServer::GetThreadId(),\
-                coServer::GetFiberId(), time(0), "sylar::Thread::GetName()"))).getSS()
+                coServer::GetFiberId(), time(0), "coServer::Thread::GetName()"))).getSS()
 
 #define COSERVER_LOG_DEBUG(logger) COSERVER_LOG_LEVEL(logger, coServer::LogLevel::DEBUG)
 
