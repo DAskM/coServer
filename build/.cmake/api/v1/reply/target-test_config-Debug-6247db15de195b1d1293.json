@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "/home/leedong/Desktop/Project/conServer/bin/test"
+			"path" : "/home/leedong/Desktop/Project/conServer/bin/test_config"
 		}
 	],
 	"backtrace" : 1,
@@ -28,31 +28,31 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 17,
+				"line" : 31,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 15,
+				"line" : 8,
 				"parent" : 0
 			},
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 19,
+				"line" : 33,
 				"parent" : 0
 			},
 			{
 				"command" : 3,
 				"file" : 0,
-				"line" : 18,
+				"line" : 32,
 				"parent" : 0
 			},
 			{
 				"command" : 4,
 				"file" : 0,
-				"line" : 14,
+				"line" : 7,
 				"parent" : 0
 			}
 		]
@@ -70,7 +70,7 @@
 			[
 				{
 					"backtrace" : 5,
-					"path" : "/usr/local/include/yaml-cpp"
+					"path" : "/home/leedong/Desktop/Project/conServer/."
 				}
 			],
 			"language" : "CXX",
@@ -87,7 +87,7 @@
 			"id" : "conServer::@6890427a1f51a3e7e1df"
 		}
 	],
-	"id" : "test::@6890427a1f51a3e7e1df",
+	"id" : "test_config::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -102,23 +102,31 @@
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "-L/usr/local/lib",
+				"fragment" : "-L/src/lib",
 				"role" : "libraryPath"
 			},
 			{
-				"fragment" : "-Wl,-rpath,/usr/local/lib:/home/leedong/Desktop/Project/conServer/lib",
+				"fragment" : "-Wl,-rpath,/src/lib:/home/leedong/Desktop/Project/conServer/lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 3,
 				"fragment" : "../lib/libconServer.so",
 				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lpthread",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/local/lib/libyaml-cpp.a",
+				"role" : "libraries"
 			}
 		],
 		"language" : "CXX"
 	},
-	"name" : "test",
-	"nameOnDisk" : "test",
+	"name" : "test_config",
+	"nameOnDisk" : "test_config",
 	"paths" : 
 	{
 		"build" : ".",
@@ -139,7 +147,7 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "tests/test.cc",
+			"path" : "tests/test_config.cc",
 			"sourceGroupIndex" : 0
 		}
 	],

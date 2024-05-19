@@ -5,6 +5,8 @@
 #include <unistd.h>
 #include <stdint.h>
 #include <cxxabi.h>
+#include <sys/types.h>
+#include <sys/syscall.h>
 
 namespace coServer{
 pid_t GetThreadId();

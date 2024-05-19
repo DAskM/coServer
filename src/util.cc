@@ -14,7 +14,7 @@
 namespace coServer{
     
 pid_t GetThreadId(){
-    return 0;
+    return syscall(SYS_gettid);
 }
 
 uint32_t GetFiberId(){

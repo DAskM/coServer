@@ -6,5 +6,5 @@ CXX_FLAGS =  -rdynamic -O0 -g -std=c++11 -Wall -Wno-deprecated -Werror -Wno-unus
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/usr/local/include/yaml-cpp 
+CXX_INCLUDES = -I/home/leedong/Desktop/Project/conServer/. 
 

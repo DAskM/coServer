@@ -23,8 +23,7 @@
 
 #include "util.h"
 #include "singleton.h"
-
-namespace coServer{
+#include "thread.h"
 
 #define COSERVER_LOG_LEVEL(logger, level) \
     if(logger->getLevel() <= level) \
@@ -62,6 +61,9 @@ namespace coServer{
 #define COSERVER_LOG_ROOT() coServer::LoggerMgr::GetInstance()->getRoot()
 
 #define COSERVER_LOG_NAME(name) coServer::LoggerMgr::GetInstance()->getLogger(name)
+
+
+namespace coServer{
 
 class Logger;
 class LoggerManager;
@@ -159,11 +161,12 @@ public:
 
 public:
     class FormatItem {
-    public: typedef std::shared_ptr<FormatItem> ptr;
+    public: 
+        typedef std::shared_ptr<FormatItem> ptr;
     
-    virtual ~FormatItem() {}
+        virtual ~FormatItem() {}
     
-    virtual void format(std::ostream& os, std::shared_ptr<Logger> logger, LogLevel::Level level, LogEvent::ptr event) = 0;
+        virtual void format(std::ostream& os, std::shared_ptr<Logger> logger, LogLevel::Level level, LogEvent::ptr event) = 0;
     };
 
 private:
@@ -176,6 +179,7 @@ class LogAppender {
 friend class Logger;
 public:
     typedef std::shared_ptr<LogAppender> ptr;
+    typedef SpinLock MutexType;
 
     virtual ~LogAppender() {}
 
@@ -193,6 +197,7 @@ public:
 protected:
     LogLevel::Level m_level = LogLevel::DEBUG;
     bool m_hasFormatter = false;
+    MutexType m_mutex;
     LogFormatter::ptr m_formatter;
 };
 
@@ -200,6 +205,7 @@ class Logger : public std::enable_shared_from_this<Logger>{
 friend class LoggerManager;
 public:
     typedef std::shared_ptr<Logger> ptr;
+    typedef SpinLock MutexType;
 
     Logger(const std::string& name = "root");
 
@@ -237,6 +243,7 @@ public:
 private:
     std::string m_name;
     LogLevel::Level m_level;
+    MutexType m_mutex;
     std::list<LogAppender::ptr> m_appenders;
     LogFormatter::ptr m_formatter;
     Logger::ptr m_root; 
@@ -270,6 +277,8 @@ private:
 
 class LoggerManager{
 public:
+    typedef SpinLock MutexType;
+
     LoggerManager();
 
     Logger::ptr getLogger(const std::string& name);
@@ -280,6 +289,7 @@ public:
 
     std::string toYamlString();
 private:
+    MutexType m_mutex;
     std::map<std::string, Logger::ptr> m_loggers;
     Logger::ptr m_root;
 };
