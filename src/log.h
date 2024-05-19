@@ -20,7 +20,7 @@
     if(logger->getLevel() <= level) \
         coServer::LogEventWrap(coServer::LogEvent::ptr(new coServer::LogEvent(logger, level, \
                         __FILE__, __LINE__, 0, coServer::GetThreadId(),\
-                coServer::GetFiberId(), time(0), "coServer::Thread::GetName()"))).getSS()
+                coServer::GetFiberId(), time(0), coServer::Thread::GetName()))).getSS()
 
 #define COSERVER_LOG_DEBUG(logger) COSERVER_LOG_LEVEL(logger, coServer::LogLevel::DEBUG)
 
@@ -36,7 +36,7 @@
     if(logger->getLevel() <= level) \
         coServer::LogEventWrap(coServer::LogEvent::ptr(new coServer::LogEvent(logger, level, \
                         __FILE__, __LINE__, 0, coServer::GetThreadId(),\
-                coServer::GetFiberId(), time(0), "coServer::Thread::GetName()"))).getEvent()->format(fmt, __VA_ARGS__)
+                coServer::GetFiberId(), time(0), coServer::Thread::GetName()))).getEvent()->format(fmt, __VA_ARGS__)
 
 
 #define COSERVER_LOG_FMT_DEBUG(logger, fmt, ...) COSERVER_LOG_FMT_LEVEL(logger, coServer::LogLevel::DEBUG, fmt, __VA_ARGS__)

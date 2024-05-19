@@ -47,13 +47,13 @@ int main(int argc, char** argv){
         thrs.push_back(thr);
     }
 
-    for(size_t i=0; i<thrs.size(); ++i){
+    for(int i=0; i<5; ++i){
         thrs[i]->join();
     }
 
     COSERVER_LOG_INFO(g_logger) << "thread test end";
     COSERVER_LOG_INFO(g_logger) << "count=" << count;
 
-    std::cout << count << std::endl;
+    
     return 0;
 }
