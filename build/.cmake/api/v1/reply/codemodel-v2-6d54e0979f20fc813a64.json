@@ -17,7 +17,8 @@
 						0,
 						1,
 						2,
-						3
+						3,
+						4
 					]
 				}
 			],
@@ -35,7 +36,8 @@
 						0,
 						1,
 						2,
-						3
+						3,
+						4
 					]
 				}
 			],
@@ -44,28 +46,35 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "conServer::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-conServer-Debug-5ed33e86866d79331a6e.json",
+					"jsonFile" : "target-conServer-Debug-86fbca5711ab5dbc58bc.json",
 					"name" : "conServer",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "test::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-test-Debug-e549d25414fcbdb49fef.json",
+					"jsonFile" : "target-test-Debug-796889f1fdcec11e74ab.json",
 					"name" : "test",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
+					"id" : "test_assert::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-test_assert-Debug-865f58fc2dcf0f9f59e6.json",
+					"name" : "test_assert",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
 					"id" : "test_config::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-test_config-Debug-6247db15de195b1d1293.json",
+					"jsonFile" : "target-test_config-Debug-3b1040ef4b1fd3100a05.json",
 					"name" : "test_config",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "test_thread::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-test_thread-Debug-fdf28759f034d57cda95.json",
+					"jsonFile" : "target-test_thread-Debug-dd7794fd1604a3072e57.json",
 					"name" : "test_thread",
 					"projectIndex" : 0
 				}

@@ -1,0 +1,11 @@
+logs:
+    - name: root
+      level: info
+      appenders:
+            file: /home/leedong/Desktop/Project/conServer/tests/root.log
+          - type: StdoutLogAppender
+    - name: system
+      level: info
+      appenders:
+            file: /home/leedong/Desktop/Project/conServer/tests/system.log
+          - type: StdoutLogAppender

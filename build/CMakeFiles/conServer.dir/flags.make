@@ -6,5 +6,5 @@ CXX_FLAGS =  -rdynamic -O0 -g -std=c++11 -Wall -Wno-deprecated -Werror -Wno-unus
 
 CXX_DEFINES = -DconServer_EXPORTS
 
-CXX_INCLUDES = -I/home/leedong/Desktop/Project/conServer/. 
+CXX_INCLUDES = -I/home/leedong/Desktop/Project/conServer/. -I/home/leedong/Desktop/Project/conServer/./src 
 

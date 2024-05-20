@@ -75,9 +75,13 @@ stdint.h
 -
 cxxabi.h
 -
+string
+-
 sys/types.h
 -
 sys/syscall.h
+-
+vector
 -
 
 /home/leedong/Desktop/Project/conServer/tests/test.cc

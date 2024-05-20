@@ -5,13 +5,20 @@
 #include <unistd.h>
 #include <stdint.h>
 #include <cxxabi.h>
+#include <string>
 #include <sys/types.h>
 #include <sys/syscall.h>
+#include <vector>
 
 namespace coServer{
 pid_t GetThreadId();
 
 uint32_t GetFiberId();
+
+// 获取调用栈信息
+void Backtrace(std::vector<std::string>& bt, int size=64, int skip=1);
+
+std::string BacktraceToString(int size=64, int skip=2, const std::string& prefix="    ");
 
 template<class T>
 const char* TypeToName() {

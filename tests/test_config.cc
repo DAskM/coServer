@@ -32,7 +32,7 @@ void print_yaml(const YAML::Node& node, int level){
 }
 
 void test_yaml(){
-    YAML::Node root = YAML::LoadFile("/home/leedong/Desktop/Project/conServer/tests/log.yml");
+    YAML::Node root = YAML::LoadFile("/home/leedong/Desktop/Project/conServer/tests/logStd.yml");
     print_yaml(root, 0);
     COSERVER_LOG_INFO(COSERVER_LOG_ROOT()) << root.Scalar();
 }

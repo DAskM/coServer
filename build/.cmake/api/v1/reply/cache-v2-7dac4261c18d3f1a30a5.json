@@ -1122,6 +1122,18 @@
 			"value" : "FALSE"
 		},
 		{
+			"name" : "ENABLE_FRAME_POINTERS",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Enable frame pointers"
+				}
+			],
+			"type" : "BOOL",
+			"value" : "OFF"
+		},
+		{
 			"name" : "YAMLCPP",
 			"properties" : 
 			[
