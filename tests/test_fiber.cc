@@ -14,13 +14,30 @@ void run_in_fiber(){
     coServer::Fiber::GetThis()->YieldToHold();
 }
 
+void test_fiber(){
+    COSERVER_LOG_INFO(g_logger) << "main begin -1";
+    {
+        coServer::Fiber::GetThis();
+        COSERVER_LOG_INFO(g_logger) << "main begin";
+        coServer::Fiber::ptr fiber(new coServer::Fiber(run_in_fiber));
+        fiber->swapIn();
+        COSERVER_LOG_INFO(g_logger) << "main after swapIn";
+        fiber->swapIn();
+        COSERVER_LOG_INFO(g_logger) << "main after end";
+        fiber->swapIn();
+    }
+    COSERVER_LOG_INFO(g_logger) << "main after end2";
+}
+
 int main(){
-    coServer::Fiber::GetThis();
-    COSERVER_LOG_INFO(g_logger) << "main begin";
-    coServer::Fiber::ptr fiber(new coServer::Fiber(run_in_fiber));
-    fiber->swapIn();
-    COSERVER_LOG_INFO(g_logger) << "main after swapIn";
-    fiber->swapIn();
-    COSERVER_LOG_INFO(g_logger) << "main after ed";
+    coServer::Thread::SetName("main");
+    std::vector<coServer::Thread::ptr> thrs;
+    for(int i=0; i<3; ++i){
+        thrs.push_back(coServer::Thread::ptr(
+            new coServer::Thread(&test_fiber, "name_"+std::to_string(i))));
+    }
+    for(auto i : thrs){
+        i->join();
+    }
     return 0;
 }

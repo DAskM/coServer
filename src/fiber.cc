@@ -164,6 +164,13 @@ void Fiber::MainFunc(){
         cur->m_state = EXCEPT;
         COSERVER_LOG_ERROR(g_logger) << "Fiber Except";
     }
+
+    // 从智能指针中提取原始指针
+    auto raw_ptr = cur.get();
+    cur.reset();
+    // 使用原始指针切换协程
+    raw_ptr->swapOut();
+    COSERVER_ASSERT2(false, "never run here");
 }
 
 uint64_t Fiber::GetFiberId(){
