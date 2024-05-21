@@ -10,6 +10,17 @@ CMakeFiles/conServer.dir/src/config.cc.o: ../src/singleton.h
 CMakeFiles/conServer.dir/src/config.cc.o: ../src/thread.h
 CMakeFiles/conServer.dir/src/config.cc.o: ../src/util.h
 
+CMakeFiles/conServer.dir/src/fiber.cc.o: ../src/config.h
+CMakeFiles/conServer.dir/src/fiber.cc.o: ../src/fiber.cc
+CMakeFiles/conServer.dir/src/fiber.cc.o: ../src/fiber.h
+CMakeFiles/conServer.dir/src/fiber.cc.o: ../src/log.h
+CMakeFiles/conServer.dir/src/fiber.cc.o: ../src/macro.h
+CMakeFiles/conServer.dir/src/fiber.cc.o: ../src/mutex.h
+CMakeFiles/conServer.dir/src/fiber.cc.o: ../src/noncopyable.h
+CMakeFiles/conServer.dir/src/fiber.cc.o: ../src/singleton.h
+CMakeFiles/conServer.dir/src/fiber.cc.o: ../src/thread.h
+CMakeFiles/conServer.dir/src/fiber.cc.o: ../src/util.h
+
 CMakeFiles/conServer.dir/src/log.cc.o: ../src/config.h
 CMakeFiles/conServer.dir/src/log.cc.o: ../src/log.cc
 CMakeFiles/conServer.dir/src/log.cc.o: ../src/log.h
@@ -31,6 +42,7 @@ CMakeFiles/conServer.dir/src/thread.cc.o: ../src/thread.cc
 CMakeFiles/conServer.dir/src/thread.cc.o: ../src/thread.h
 CMakeFiles/conServer.dir/src/thread.cc.o: ../src/util.h
 
+CMakeFiles/conServer.dir/src/util.cc.o: ../src/fiber.h
 CMakeFiles/conServer.dir/src/util.cc.o: ../src/log.h
 CMakeFiles/conServer.dir/src/util.cc.o: ../src/mutex.h
 CMakeFiles/conServer.dir/src/util.cc.o: ../src/noncopyable.h

@@ -11,6 +11,7 @@
 
 #include "util.h"
 #include "log.h"
+#include "fiber.h"
 
 namespace coServer{
 
@@ -21,7 +22,7 @@ pid_t GetThreadId(){
 }
 
 uint32_t GetFiberId(){
-    return 0;
+    return coServer::Fiber::GetFiberId();
 }
 
 void Backtrace(std::vector<std::string>& bt, int size, int skip){

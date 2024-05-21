@@ -3,6 +3,7 @@
 
 #include "log.h"
 #include "macro.h"
+#include "fiber.h"
 
 coServer::Logger::ptr g_logger = COSERVER_LOG_ROOT();
 

@@ -114,6 +114,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named test_fiber
+
+# Build rule for target.
+test_fiber: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_fiber
+.PHONY : test_fiber
+
+# fast build rule for target.
+test_fiber/fast:
+	$(MAKE) -f CMakeFiles/test_fiber.dir/build.make CMakeFiles/test_fiber.dir/build
+.PHONY : test_fiber/fast
+
+#=============================================================================
 # Target rules for targets named test_assert
 
 # Build rule for target.
@@ -204,6 +217,33 @@ src/config.s: src/config.cc.s
 src/config.cc.s:
 	$(MAKE) -f CMakeFiles/conServer.dir/build.make CMakeFiles/conServer.dir/src/config.cc.s
 .PHONY : src/config.cc.s
+
+src/fiber.o: src/fiber.cc.o
+
+.PHONY : src/fiber.o
+
+# target to build an object file
+src/fiber.cc.o:
+	$(MAKE) -f CMakeFiles/conServer.dir/build.make CMakeFiles/conServer.dir/src/fiber.cc.o
+.PHONY : src/fiber.cc.o
+
+src/fiber.i: src/fiber.cc.i
+
+.PHONY : src/fiber.i
+
+# target to preprocess a source file
+src/fiber.cc.i:
+	$(MAKE) -f CMakeFiles/conServer.dir/build.make CMakeFiles/conServer.dir/src/fiber.cc.i
+.PHONY : src/fiber.cc.i
+
+src/fiber.s: src/fiber.cc.s
+
+.PHONY : src/fiber.s
+
+# target to generate assembly for a file
+src/fiber.cc.s:
+	$(MAKE) -f CMakeFiles/conServer.dir/build.make CMakeFiles/conServer.dir/src/fiber.cc.s
+.PHONY : src/fiber.cc.s
 
 src/log.o: src/log.cc.o
 
@@ -394,6 +434,33 @@ tests/test_config.cc.s:
 	$(MAKE) -f CMakeFiles/test_config.dir/build.make CMakeFiles/test_config.dir/tests/test_config.cc.s
 .PHONY : tests/test_config.cc.s
 
+tests/test_fiber.o: tests/test_fiber.cc.o
+
+.PHONY : tests/test_fiber.o
+
+# target to build an object file
+tests/test_fiber.cc.o:
+	$(MAKE) -f CMakeFiles/test_fiber.dir/build.make CMakeFiles/test_fiber.dir/tests/test_fiber.cc.o
+.PHONY : tests/test_fiber.cc.o
+
+tests/test_fiber.i: tests/test_fiber.cc.i
+
+.PHONY : tests/test_fiber.i
+
+# target to preprocess a source file
+tests/test_fiber.cc.i:
+	$(MAKE) -f CMakeFiles/test_fiber.dir/build.make CMakeFiles/test_fiber.dir/tests/test_fiber.cc.i
+.PHONY : tests/test_fiber.cc.i
+
+tests/test_fiber.s: tests/test_fiber.cc.s
+
+.PHONY : tests/test_fiber.s
+
+# target to generate assembly for a file
+tests/test_fiber.cc.s:
+	$(MAKE) -f CMakeFiles/test_fiber.dir/build.make CMakeFiles/test_fiber.dir/tests/test_fiber.cc.s
+.PHONY : tests/test_fiber.cc.s
+
 tests/test_thread.o: tests/test_thread.cc.o
 
 .PHONY : tests/test_thread.o
@@ -428,6 +495,7 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
+	@echo "... test_fiber"
 	@echo "... test_assert"
 	@echo "... test_config"
 	@echo "... edit_cache"
@@ -437,6 +505,9 @@ help:
 	@echo "... src/config.o"
 	@echo "... src/config.i"
 	@echo "... src/config.s"
+	@echo "... src/fiber.o"
+	@echo "... src/fiber.i"
+	@echo "... src/fiber.s"
 	@echo "... src/log.o"
 	@echo "... src/log.i"
 	@echo "... src/log.s"
@@ -458,6 +529,9 @@ help:
 	@echo "... tests/test_config.o"
 	@echo "... tests/test_config.i"
 	@echo "... tests/test_config.s"
+	@echo "... tests/test_fiber.o"
+	@echo "... tests/test_fiber.i"
+	@echo "... tests/test_fiber.s"
 	@echo "... tests/test_thread.o"
 	@echo "... tests/test_thread.i"
 	@echo "... tests/test_thread.s"

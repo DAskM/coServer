@@ -16,7 +16,8 @@ set(LIB_SRC
     src/util.cc
     src/config.cc
     src/thread.cc
-    src/mutex.cc)
+    src/mutex.cc
+    src/fiber.cc)
 
 add_library(conServer SHARED ${LIB_SRC})
 
@@ -40,6 +41,10 @@ target_link_libraries(test_thread ${LIB_LIB})
 add_executable(test_assert tests/test_assert.cc)
 add_dependencies(test_assert conServer)
 target_link_libraries(test_assert ${LIB_LIB})
+
+add_executable(test_fiber tests/test_fiber.cc)
+add_dependencies(test_fiber conServer)
+target_link_libraries(test_fiber ${LIB_LIB})
 
 SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 SET(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
