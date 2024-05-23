@@ -5,6 +5,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/conServer.dir/src/fiber.cc.o"
   "CMakeFiles/conServer.dir/src/log.cc.o"
   "CMakeFiles/conServer.dir/src/mutex.cc.o"
+  "CMakeFiles/conServer.dir/src/scheduler.cc.o"
   "CMakeFiles/conServer.dir/src/thread.cc.o"
   "CMakeFiles/conServer.dir/src/util.cc.o"
 )

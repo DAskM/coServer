@@ -17,6 +17,7 @@ CMakeFiles/conServer.dir/src/fiber.cc.o: ../src/log.h
 CMakeFiles/conServer.dir/src/fiber.cc.o: ../src/macro.h
 CMakeFiles/conServer.dir/src/fiber.cc.o: ../src/mutex.h
 CMakeFiles/conServer.dir/src/fiber.cc.o: ../src/noncopyable.h
+CMakeFiles/conServer.dir/src/fiber.cc.o: ../src/scheduler.h
 CMakeFiles/conServer.dir/src/fiber.cc.o: ../src/singleton.h
 CMakeFiles/conServer.dir/src/fiber.cc.o: ../src/thread.h
 CMakeFiles/conServer.dir/src/fiber.cc.o: ../src/util.h
@@ -33,6 +34,18 @@ CMakeFiles/conServer.dir/src/log.cc.o: ../src/util.h
 CMakeFiles/conServer.dir/src/mutex.cc.o: ../src/mutex.cc
 CMakeFiles/conServer.dir/src/mutex.cc.o: ../src/mutex.h
 CMakeFiles/conServer.dir/src/mutex.cc.o: ../src/noncopyable.h
+
+CMakeFiles/conServer.dir/src/scheduler.cc.o: ../src/config.h
+CMakeFiles/conServer.dir/src/scheduler.cc.o: ../src/fiber.h
+CMakeFiles/conServer.dir/src/scheduler.cc.o: ../src/log.h
+CMakeFiles/conServer.dir/src/scheduler.cc.o: ../src/macro.h
+CMakeFiles/conServer.dir/src/scheduler.cc.o: ../src/mutex.h
+CMakeFiles/conServer.dir/src/scheduler.cc.o: ../src/noncopyable.h
+CMakeFiles/conServer.dir/src/scheduler.cc.o: ../src/scheduler.cc
+CMakeFiles/conServer.dir/src/scheduler.cc.o: ../src/scheduler.h
+CMakeFiles/conServer.dir/src/scheduler.cc.o: ../src/singleton.h
+CMakeFiles/conServer.dir/src/scheduler.cc.o: ../src/thread.h
+CMakeFiles/conServer.dir/src/scheduler.cc.o: ../src/util.h
 
 CMakeFiles/conServer.dir/src/thread.cc.o: ../src/log.h
 CMakeFiles/conServer.dir/src/thread.cc.o: ../src/mutex.h

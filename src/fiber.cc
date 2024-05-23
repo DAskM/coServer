@@ -3,20 +3,22 @@
 #include "fiber.h"
 #include "config.h"
 #include "macro.h"
+#include "scheduler.h"
 
 namespace coServer{
 
 static Logger::ptr g_logger = COSERVER_LOG_NAME("system");
 
+// 记录当前线程下协程id编号（递增）
 static std::atomic<uint64_t> s_fiber_id {0};
 static std::atomic<uint64_t> s_fiber_count {0};
 
-// 线程局部变量，指向运行协程（ 和线程绑定的那个主协程）
+// 表示当前线程中所运行的协程
 static thread_local Fiber* t_fiber = nullptr;
-// 表示当前运行协程
+// 线程局部变量，指向运行协程（ 和线程绑定的那个主协程）
 static thread_local Fiber::ptr t_threadFiber = nullptr;
 static ConfigVar<uint32_t>::ptr g_fiber_stack_size = 
-    Config::Lookup<uint32_t>("fiber.stack_size", 1024*1024, "fiber stack size");
+    Config::Lookup<uint32_t>("fiber.stack_size", 128*1024, "fiber stack size");
 
 // 内存配置器，在堆上给协程分配栈zhen
 class MallocStackAllocator{
@@ -35,6 +37,7 @@ using StackAllocator = MallocStackAllocator;
 // 主协程构造函数
 Fiber::Fiber(){
     m_state = EXEC;
+    // 把构造的新Fiber对象作为该线程的主协程
     SetThis(this);
 
     if(getcontext(&m_ctx)){
@@ -44,7 +47,8 @@ Fiber::Fiber(){
     COSERVER_LOG_DEBUG(g_logger) << "Fiber::Fiber";
 }
 
-Fiber::Fiber(std::function<void()> cb, size_t stacksize)
+// 暴露给用户的协程构造函数
+Fiber::Fiber(std::function<void()> cb, size_t stacksize, bool use_caller)
     :m_id(++s_fiber_id)
     ,m_cb(cb){
 
@@ -62,8 +66,14 @@ Fiber::Fiber(std::function<void()> cb, size_t stacksize)
     m_ctx.uc_stack.ss_sp = m_stack;
     m_ctx.uc_stack.ss_size = m_stacksize;
     // 设置协程上下文
-    makecontext(&m_ctx, &Fiber::MainFunc, 0);
 
+    if(!use_caller){
+        makecontext(&m_ctx, &Fiber::MainFunc, 0);
+    }
+    else{
+        makecontext(&m_ctx, &Fiber::CallerMainFunc, 0);
+    }
+    
     COSERVER_LOG_DEBUG(g_logger) << "Fiber::Fiber id=" << m_id;
 }
 
@@ -101,21 +111,38 @@ void Fiber::reset(std::function<void()> cb){
     m_ctx.uc_stack.ss_size = m_stacksize;
 
     makecontext(&m_ctx, &Fiber::MainFunc, 0);
+    m_state = INIT;
+}
+
+void Fiber::call(){
+    SetThis(this);
+    m_state = EXEC;
+    if(swapcontext(&t_threadFiber->m_ctx, &m_ctx)){
+        COSERVER_ASSERT2(false, "swapcontext");
+    }
+}
+
+void Fiber::back(){
+    SetThis(t_threadFiber.get());
+    if(swapcontext(&m_ctx, &t_threadFiber->m_ctx)){
+        COSERVER_ASSERT2(false, "swapcontext");
+    }
 }
 
 void Fiber::swapIn(){
     SetThis(this);
     COSERVER_ASSERT(m_state != EXEC);
     m_state = EXEC;
-    // 将协程对象的栈帧切换到主协程上
-    if(swapcontext(&t_threadFiber->m_ctx, &m_ctx)){
+    // 将调度器主协程对象的栈帧切换到主协程上
+    if(swapcontext(&Scheduler::GetMainFiber()->m_ctx, &m_ctx)){
         COSERVER_ASSERT2(false, "swapcontext");
     }
 }
 
 void Fiber::swapOut(){
     SetThis(t_threadFiber.get());
-    if(swapcontext(&m_ctx, &t_threadFiber->m_ctx)){
+    // 切换为调度器主协程对象的栈帧
+    if(swapcontext(&m_ctx, &Scheduler::GetMainFiber()->m_ctx)){
         COSERVER_ASSERT2(false, "swapcontext");
     }
 }
@@ -178,6 +205,32 @@ uint64_t Fiber::GetFiberId(){
         return t_fiber->getId();
     }
     return 0;
+}
+
+void Fiber::CallerMainFunc(){
+    Fiber::ptr cur = GetThis();
+    COSERVER_ASSERT(cur);
+    try{
+        cur->m_cb();
+        cur->m_cb = nullptr;
+        cur->m_state = TERM;
+    }catch(std::exception& ex){
+        cur->m_state = EXCEPT;
+        COSERVER_LOG_ERROR(g_logger) << "Fiber Except: " << ex.what()
+            << " fiber_id=" << cur->getId()
+            << std::endl
+            << coServer::BacktraceToString();
+    }catch(...){
+        cur->m_state = EXCEPT;
+        COSERVER_LOG_ERROR(g_logger) << "Fiber Except: "
+            << " fiber_id=" << cur->getId()
+            << std::endl
+            << coServer::BacktraceToString();
+    }
+    auto raw_ptr = cur.get();
+    cur.reset();
+    raw_ptr->back();
+    COSERVER_ASSERT2(false, "never reach fiber_id=" + std::to_string(raw_ptr->getId()));
 }
 
 }

@@ -17,7 +17,8 @@ set(LIB_SRC
     src/config.cc
     src/thread.cc
     src/mutex.cc
-    src/fiber.cc)
+    src/fiber.cc
+    src/scheduler.cc)
 
 add_library(conServer SHARED ${LIB_SRC})
 
@@ -45,6 +46,10 @@ target_link_libraries(test_assert ${LIB_LIB})
 add_executable(test_fiber tests/test_fiber.cc)
 add_dependencies(test_fiber conServer)
 target_link_libraries(test_fiber ${LIB_LIB})
+
+add_executable(test_scheduler tests/test_scheduler.cc)
+add_dependencies(test_scheduler conServer)
+target_link_libraries(test_scheduler ${LIB_LIB})
 
 SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 SET(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)

@@ -42,14 +42,6 @@ singleton.h
 thread.h
 ../src/thread.h
 
-../src/macro.h
-string.h
--
-assert.h
--
-util.h
-../src/util.h
-
 ../src/mutex.h
 thread
 -
@@ -73,6 +65,20 @@ noncopyable.h
 ../src/noncopyable.h
 
 ../src/noncopyable.h
+
+../src/scheduler.h
+memory
+-
+vector
+-
+list
+-
+iostream
+-
+fiber.h
+../src/fiber.h
+thread.h
+../src/thread.h
 
 ../src/singleton.h
 memory
@@ -100,15 +106,9 @@ sys/syscall.h
 vector
 -
 
-/home/leedong/Desktop/Project/conServer/tests/test_assert.cc
-assert.h
--
-iostream
--
+/home/leedong/Desktop/Project/conServer/tests/test_scheduler.cc
 log.h
 /home/leedong/Desktop/Project/conServer/tests/log.h
-macro.h
-/home/leedong/Desktop/Project/conServer/tests/macro.h
-fiber.h
-/home/leedong/Desktop/Project/conServer/tests/fiber.h
+scheduler.h
+/home/leedong/Desktop/Project/conServer/tests/scheduler.h
 

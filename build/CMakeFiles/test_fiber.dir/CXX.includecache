@@ -39,12 +39,12 @@ thread.h
 ../src/thread.h
 
 ../src/fiber.h
-ucontext.h
+memory
 -
 functional
 -
-thread.h
-../src/thread.h
+ucontext.h
+-
 
 ../src/log.h
 string
