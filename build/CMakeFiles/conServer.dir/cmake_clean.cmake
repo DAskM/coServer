@@ -3,6 +3,7 @@ file(REMOVE_RECURSE
   "../lib/libconServer.so"
   "CMakeFiles/conServer.dir/src/config.cc.o"
   "CMakeFiles/conServer.dir/src/fiber.cc.o"
+  "CMakeFiles/conServer.dir/src/iomanager.cc.o"
   "CMakeFiles/conServer.dir/src/log.cc.o"
   "CMakeFiles/conServer.dir/src/mutex.cc.o"
   "CMakeFiles/conServer.dir/src/scheduler.cc.o"

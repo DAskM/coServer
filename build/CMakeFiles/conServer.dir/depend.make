@@ -22,6 +22,18 @@ CMakeFiles/conServer.dir/src/fiber.cc.o: ../src/singleton.h
 CMakeFiles/conServer.dir/src/fiber.cc.o: ../src/thread.h
 CMakeFiles/conServer.dir/src/fiber.cc.o: ../src/util.h
 
+CMakeFiles/conServer.dir/src/iomanager.cc.o: ../src/fiber.h
+CMakeFiles/conServer.dir/src/iomanager.cc.o: ../src/iomanager.cc
+CMakeFiles/conServer.dir/src/iomanager.cc.o: ../src/iomanager.h
+CMakeFiles/conServer.dir/src/iomanager.cc.o: ../src/log.h
+CMakeFiles/conServer.dir/src/iomanager.cc.o: ../src/macro.h
+CMakeFiles/conServer.dir/src/iomanager.cc.o: ../src/mutex.h
+CMakeFiles/conServer.dir/src/iomanager.cc.o: ../src/noncopyable.h
+CMakeFiles/conServer.dir/src/iomanager.cc.o: ../src/scheduler.h
+CMakeFiles/conServer.dir/src/iomanager.cc.o: ../src/singleton.h
+CMakeFiles/conServer.dir/src/iomanager.cc.o: ../src/thread.h
+CMakeFiles/conServer.dir/src/iomanager.cc.o: ../src/util.h
+
 CMakeFiles/conServer.dir/src/log.cc.o: ../src/config.h
 CMakeFiles/conServer.dir/src/log.cc.o: ../src/log.cc
 CMakeFiles/conServer.dir/src/log.cc.o: ../src/log.h

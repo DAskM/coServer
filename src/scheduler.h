@@ -41,7 +41,7 @@ public:
     // 停止协程调度器
     void stop();
 
-    // 调度函数
+    // 
     template<class FiberOrCb>
     void schedule(FiberOrCb fc, int thread = -1){
         bool need_tickle = false;
@@ -50,7 +50,6 @@ public:
             need_tickle = scheduleNoLock(fc, thread);
         }
         if(need_tickle){
-            // 当协程池不为空时，通知线程从任务队列中取任务执行
             tickle();
         }
     }
@@ -71,6 +70,7 @@ public:
     }
 
 protected:
+
     virtual void tickle();
 
     void run();
@@ -103,6 +103,11 @@ private:
         // 任务可以是函数对象
         std::function<void()> cb;
         int thread;
+
+        FiberAndThread(Fiber::ptr* f, int thr)
+            :thread(thr) {
+            fiber.swap(*f);
+        }
 
         FiberAndThread(Fiber::ptr f, int thr)
             :fiber(f), thread(thr){}

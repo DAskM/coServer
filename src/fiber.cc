@@ -184,12 +184,18 @@ void Fiber::MainFunc(){
         cur->m_cb();
         cur->m_cb = nullptr;
         cur->m_state = TERM;
-    }catch(std::exception ex){
+    }catch(std::exception& ex){
         cur->m_state = EXCEPT;
-        COSERVER_LOG_ERROR(g_logger) << "Fiber Except: " << ex.what();
+         COSERVER_LOG_ERROR(g_logger) << "Fiber Except: " << ex.what()
+            << " fiber_id=" << cur->getId()
+            << std::endl
+            << coServer::BacktraceToString();
     }catch(...){
         cur->m_state = EXCEPT;
-        COSERVER_LOG_ERROR(g_logger) << "Fiber Except";
+        COSERVER_LOG_ERROR(g_logger) << "Fiber Except"
+            << " fiber_id=" << cur->getId()
+            << std::endl
+            << coServer::BacktraceToString();
     }
 
     // 从智能指针中提取原始指针
@@ -197,7 +203,7 @@ void Fiber::MainFunc(){
     cur.reset();
     // 使用原始指针切换协程
     raw_ptr->swapOut();
-    COSERVER_ASSERT2(false, "never run here");
+    COSERVER_ASSERT2(false, "never reach fiber_id=" + std::to_string(raw_ptr->getId()));
 }
 
 uint64_t Fiber::GetFiberId(){

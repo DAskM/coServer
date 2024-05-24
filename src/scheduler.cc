@@ -117,10 +117,10 @@ void Scheduler::setThis(){
     t_scheduler = this;
 }
 
-void Scheduler::run(){
+void Scheduler::run() {
     COSERVER_LOG_DEBUG(g_logger) << m_name << " run";
     setThis();
-    if(coServer::GetThreadId() != m_rootThread){
+    if(coServer::GetThreadId() != m_rootThread) {
         t_scheduler_fiber = Fiber::GetThis().get();
     }
 
@@ -128,27 +128,26 @@ void Scheduler::run(){
     Fiber::ptr cb_fiber;
 
     FiberAndThread ft;
-    while(true){
+    while(true) {
         ft.reset();
         bool tickle_me = false;
         bool is_active = false;
         {
             MutexType::Lock lock(m_mutex);
             auto it = m_fibers.begin();
-            while(it != m_fibers.end()){
-                // 当前线程不是任务所要求的线程
-                if(it->thread != -1 && it->thread != coServer::GetThreadId()){
+            while(it != m_fibers.end()) {
+                if(it->thread != -1 && it->thread != coServer::GetThreadId()) {
                     ++it;
                     tickle_me = true;
                     continue;
                 }
+
                 COSERVER_ASSERT(it->fiber || it->cb);
-                // 任务队列中的任务正在运行
-                if(it->fiber && it->fiber->getState() == Fiber::EXEC){
+                if(it->fiber && it->fiber->getState() == Fiber::EXEC) {
                     ++it;
                     continue;
                 }
-                // 从任务队列中获取一个任务，将之付给临时任务对象ft
+
                 ft = *it;
                 m_fibers.erase(it++);
                 ++m_activeThreadCount;
@@ -158,62 +157,56 @@ void Scheduler::run(){
             tickle_me |= it != m_fibers.end();
         }
 
-        if(tickle_me){
+        if(tickle_me) {
             tickle();
         }
 
         if(ft.fiber && (ft.fiber->getState() != Fiber::TERM
-            && ft.fiber->getState() != Fiber::EXCEPT)){
-            // 将调度器所选中的任务ft，与当前正在运行的协程对象切换
+                        && ft.fiber->getState() != Fiber::EXCEPT)) {
             ft.fiber->swapIn();
             --m_activeThreadCount;
 
-            if(ft.fiber->getState() == Fiber::READY){
+            if(ft.fiber->getState() == Fiber::READY) {
                 schedule(ft.fiber);
-            }
-            else if(ft.fiber->getState() != Fiber::TERM
-                && ft.fiber->getState() != Fiber::EXCEPT){
+            } else if(ft.fiber->getState() != Fiber::TERM
+                    && ft.fiber->getState() != Fiber::EXCEPT) {
                 ft.fiber->m_state = Fiber::HOLD;
             }
             ft.reset();
-        }
-        else if(ft.cb){
-            if(cb_fiber){
+        } else if(ft.cb) {
+            if(cb_fiber) {
                 cb_fiber->reset(ft.cb);
-            }
-            else{
+            } else {
                 cb_fiber.reset(new Fiber(ft.cb));
             }
             ft.reset();
             cb_fiber->swapIn();
             --m_activeThreadCount;
-            if(cb_fiber->getState() == Fiber::READY){
+            if(cb_fiber->getState() == Fiber::READY) {
                 schedule(cb_fiber);
                 cb_fiber.reset();
-            }
-            else if(cb_fiber->getState() == Fiber::EXCEPT
-                || cb_fiber->getState() == Fiber::TERM){
+            } else if(cb_fiber->getState() == Fiber::EXCEPT
+                    || cb_fiber->getState() == Fiber::TERM) {
                 cb_fiber->reset(nullptr);
-            }
-            else{
+            } else {//if(cb_fiber->getState() != Fiber::TERM) {
                 cb_fiber->m_state = Fiber::HOLD;
                 cb_fiber.reset();
             }
-        }
-        else{
-            if(is_active){
+        } else {
+            if(is_active) {
                 --m_activeThreadCount;
                 continue;
             }
-            if(idle_fiber->getState() == Fiber::TERM){
+            if(idle_fiber->getState() == Fiber::TERM) {
                 COSERVER_LOG_INFO(g_logger) << "idle fiber term";
                 break;
             }
+
             ++m_idleThreadCount;
             idle_fiber->swapIn();
             --m_idleThreadCount;
             if(idle_fiber->getState() != Fiber::TERM
-                || idle_fiber->getState() != Fiber::EXCEPT){
+                    && idle_fiber->getState() != Fiber::EXCEPT) {
                 idle_fiber->m_state = Fiber::HOLD;
             }
         }
