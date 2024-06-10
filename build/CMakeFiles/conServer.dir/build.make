@@ -164,6 +164,45 @@ CMakeFiles/conServer.dir/src/iomanager.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/conServer.dir/src/iomanager.cc.s"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/leedong/Desktop/Project/conServer/src/iomanager.cc -o CMakeFiles/conServer.dir/src/iomanager.cc.s
 
+CMakeFiles/conServer.dir/src/timer.cc.o: CMakeFiles/conServer.dir/flags.make
+CMakeFiles/conServer.dir/src/timer.cc.o: ../src/timer.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/leedong/Desktop/Project/conServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/conServer.dir/src/timer.cc.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/conServer.dir/src/timer.cc.o -c /home/leedong/Desktop/Project/conServer/src/timer.cc
+
+CMakeFiles/conServer.dir/src/timer.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/conServer.dir/src/timer.cc.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/leedong/Desktop/Project/conServer/src/timer.cc > CMakeFiles/conServer.dir/src/timer.cc.i
+
+CMakeFiles/conServer.dir/src/timer.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/conServer.dir/src/timer.cc.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/leedong/Desktop/Project/conServer/src/timer.cc -o CMakeFiles/conServer.dir/src/timer.cc.s
+
+CMakeFiles/conServer.dir/src/fd_manager.cc.o: CMakeFiles/conServer.dir/flags.make
+CMakeFiles/conServer.dir/src/fd_manager.cc.o: ../src/fd_manager.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/leedong/Desktop/Project/conServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/conServer.dir/src/fd_manager.cc.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/conServer.dir/src/fd_manager.cc.o -c /home/leedong/Desktop/Project/conServer/src/fd_manager.cc
+
+CMakeFiles/conServer.dir/src/fd_manager.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/conServer.dir/src/fd_manager.cc.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/leedong/Desktop/Project/conServer/src/fd_manager.cc > CMakeFiles/conServer.dir/src/fd_manager.cc.i
+
+CMakeFiles/conServer.dir/src/fd_manager.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/conServer.dir/src/fd_manager.cc.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/leedong/Desktop/Project/conServer/src/fd_manager.cc -o CMakeFiles/conServer.dir/src/fd_manager.cc.s
+
+CMakeFiles/conServer.dir/src/hook.cc.o: CMakeFiles/conServer.dir/flags.make
+CMakeFiles/conServer.dir/src/hook.cc.o: ../src/hook.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/leedong/Desktop/Project/conServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/conServer.dir/src/hook.cc.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/conServer.dir/src/hook.cc.o -c /home/leedong/Desktop/Project/conServer/src/hook.cc
+
+CMakeFiles/conServer.dir/src/hook.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/conServer.dir/src/hook.cc.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/leedong/Desktop/Project/conServer/src/hook.cc > CMakeFiles/conServer.dir/src/hook.cc.i
+
+CMakeFiles/conServer.dir/src/hook.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/conServer.dir/src/hook.cc.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/leedong/Desktop/Project/conServer/src/hook.cc -o CMakeFiles/conServer.dir/src/hook.cc.s
+
 # Object files for target conServer
 conServer_OBJECTS = \
 "CMakeFiles/conServer.dir/src/log.cc.o" \
@@ -173,7 +212,10 @@ conServer_OBJECTS = \
 "CMakeFiles/conServer.dir/src/mutex.cc.o" \
 "CMakeFiles/conServer.dir/src/fiber.cc.o" \
 "CMakeFiles/conServer.dir/src/scheduler.cc.o" \
-"CMakeFiles/conServer.dir/src/iomanager.cc.o"
+"CMakeFiles/conServer.dir/src/iomanager.cc.o" \
+"CMakeFiles/conServer.dir/src/timer.cc.o" \
+"CMakeFiles/conServer.dir/src/fd_manager.cc.o" \
+"CMakeFiles/conServer.dir/src/hook.cc.o"
 
 # External object files for target conServer
 conServer_EXTERNAL_OBJECTS =
@@ -186,9 +228,12 @@ conServer_EXTERNAL_OBJECTS =
 ../lib/libconServer.so: CMakeFiles/conServer.dir/src/fiber.cc.o
 ../lib/libconServer.so: CMakeFiles/conServer.dir/src/scheduler.cc.o
 ../lib/libconServer.so: CMakeFiles/conServer.dir/src/iomanager.cc.o
+../lib/libconServer.so: CMakeFiles/conServer.dir/src/timer.cc.o
+../lib/libconServer.so: CMakeFiles/conServer.dir/src/fd_manager.cc.o
+../lib/libconServer.so: CMakeFiles/conServer.dir/src/hook.cc.o
 ../lib/libconServer.so: CMakeFiles/conServer.dir/build.make
 ../lib/libconServer.so: CMakeFiles/conServer.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/leedong/Desktop/Project/conServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX shared library ../lib/libconServer.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/leedong/Desktop/Project/conServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX shared library ../lib/libconServer.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/conServer.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

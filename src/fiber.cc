@@ -93,7 +93,8 @@ Fiber::~Fiber(){
             SetThis(nullptr);
         }
     }
-    COSERVER_LOG_DEBUG(g_logger) << "Fiber::~Fiber id=" << m_id;
+    COSERVER_LOG_DEBUG(g_logger) << "Fiber::~Fiber id=" << m_id
+                              << " total=" << s_fiber_count;
 }
 
 // 资源复用，将存储上下文的内存绑定到另一个协程上
@@ -140,7 +141,7 @@ void Fiber::swapIn(){
 }
 
 void Fiber::swapOut(){
-    SetThis(t_threadFiber.get());
+    SetThis(Scheduler::GetMainFiber());
     // 切换为调度器主协程对象的栈帧
     if(swapcontext(&m_ctx, &Scheduler::GetMainFiber()->m_ctx)){
         COSERVER_ASSERT2(false, "swapcontext");
@@ -163,13 +164,15 @@ Fiber::ptr Fiber::GetThis(){
 
 void Fiber::YieldToReady(){
     Fiber::ptr cur = GetThis();
+    COSERVER_ASSERT(cur->m_state == EXEC);
     cur->m_state = READY;
     cur->swapOut();
 }
 
 void Fiber::YieldToHold(){
     Fiber::ptr cur = GetThis();
-    cur->m_state = HOLD;
+    COSERVER_ASSERT(cur->m_state == EXEC);
+    // cur->m_state = HOLD;
     cur->swapOut();
 }
 

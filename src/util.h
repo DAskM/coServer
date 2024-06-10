@@ -25,6 +25,11 @@ const char* TypeToName() {
     static const char* s_name = abi::__cxa_demangle(typeid(T).name(), nullptr, nullptr, nullptr);
     return s_name;
 }
+
+uint64_t GetCurrentUS();
+
+uint64_t GetCurrentMS();
+
 }
 
 #endif

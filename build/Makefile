@@ -140,6 +140,19 @@ test_fiber/fast:
 .PHONY : test_fiber/fast
 
 #=============================================================================
+# Target rules for targets named test_hook
+
+# Build rule for target.
+test_hook: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_hook
+.PHONY : test_hook
+
+# fast build rule for target.
+test_hook/fast:
+	$(MAKE) -f CMakeFiles/test_hook.dir/build.make CMakeFiles/test_hook.dir/build
+.PHONY : test_hook/fast
+
+#=============================================================================
 # Target rules for targets named test_assert
 
 # Build rule for target.
@@ -244,6 +257,33 @@ src/config.cc.s:
 	$(MAKE) -f CMakeFiles/conServer.dir/build.make CMakeFiles/conServer.dir/src/config.cc.s
 .PHONY : src/config.cc.s
 
+src/fd_manager.o: src/fd_manager.cc.o
+
+.PHONY : src/fd_manager.o
+
+# target to build an object file
+src/fd_manager.cc.o:
+	$(MAKE) -f CMakeFiles/conServer.dir/build.make CMakeFiles/conServer.dir/src/fd_manager.cc.o
+.PHONY : src/fd_manager.cc.o
+
+src/fd_manager.i: src/fd_manager.cc.i
+
+.PHONY : src/fd_manager.i
+
+# target to preprocess a source file
+src/fd_manager.cc.i:
+	$(MAKE) -f CMakeFiles/conServer.dir/build.make CMakeFiles/conServer.dir/src/fd_manager.cc.i
+.PHONY : src/fd_manager.cc.i
+
+src/fd_manager.s: src/fd_manager.cc.s
+
+.PHONY : src/fd_manager.s
+
+# target to generate assembly for a file
+src/fd_manager.cc.s:
+	$(MAKE) -f CMakeFiles/conServer.dir/build.make CMakeFiles/conServer.dir/src/fd_manager.cc.s
+.PHONY : src/fd_manager.cc.s
+
 src/fiber.o: src/fiber.cc.o
 
 .PHONY : src/fiber.o
@@ -270,6 +310,33 @@ src/fiber.s: src/fiber.cc.s
 src/fiber.cc.s:
 	$(MAKE) -f CMakeFiles/conServer.dir/build.make CMakeFiles/conServer.dir/src/fiber.cc.s
 .PHONY : src/fiber.cc.s
+
+src/hook.o: src/hook.cc.o
+
+.PHONY : src/hook.o
+
+# target to build an object file
+src/hook.cc.o:
+	$(MAKE) -f CMakeFiles/conServer.dir/build.make CMakeFiles/conServer.dir/src/hook.cc.o
+.PHONY : src/hook.cc.o
+
+src/hook.i: src/hook.cc.i
+
+.PHONY : src/hook.i
+
+# target to preprocess a source file
+src/hook.cc.i:
+	$(MAKE) -f CMakeFiles/conServer.dir/build.make CMakeFiles/conServer.dir/src/hook.cc.i
+.PHONY : src/hook.cc.i
+
+src/hook.s: src/hook.cc.s
+
+.PHONY : src/hook.s
+
+# target to generate assembly for a file
+src/hook.cc.s:
+	$(MAKE) -f CMakeFiles/conServer.dir/build.make CMakeFiles/conServer.dir/src/hook.cc.s
+.PHONY : src/hook.cc.s
 
 src/iomanager.o: src/iomanager.cc.o
 
@@ -406,6 +473,33 @@ src/thread.cc.s:
 	$(MAKE) -f CMakeFiles/conServer.dir/build.make CMakeFiles/conServer.dir/src/thread.cc.s
 .PHONY : src/thread.cc.s
 
+src/timer.o: src/timer.cc.o
+
+.PHONY : src/timer.o
+
+# target to build an object file
+src/timer.cc.o:
+	$(MAKE) -f CMakeFiles/conServer.dir/build.make CMakeFiles/conServer.dir/src/timer.cc.o
+.PHONY : src/timer.cc.o
+
+src/timer.i: src/timer.cc.i
+
+.PHONY : src/timer.i
+
+# target to preprocess a source file
+src/timer.cc.i:
+	$(MAKE) -f CMakeFiles/conServer.dir/build.make CMakeFiles/conServer.dir/src/timer.cc.i
+.PHONY : src/timer.cc.i
+
+src/timer.s: src/timer.cc.s
+
+.PHONY : src/timer.s
+
+# target to generate assembly for a file
+src/timer.cc.s:
+	$(MAKE) -f CMakeFiles/conServer.dir/build.make CMakeFiles/conServer.dir/src/timer.cc.s
+.PHONY : src/timer.cc.s
+
 src/util.o: src/util.cc.o
 
 .PHONY : src/util.o
@@ -541,6 +635,33 @@ tests/test_fiber.cc.s:
 	$(MAKE) -f CMakeFiles/test_fiber.dir/build.make CMakeFiles/test_fiber.dir/tests/test_fiber.cc.s
 .PHONY : tests/test_fiber.cc.s
 
+tests/test_hook.o: tests/test_hook.cc.o
+
+.PHONY : tests/test_hook.o
+
+# target to build an object file
+tests/test_hook.cc.o:
+	$(MAKE) -f CMakeFiles/test_hook.dir/build.make CMakeFiles/test_hook.dir/tests/test_hook.cc.o
+.PHONY : tests/test_hook.cc.o
+
+tests/test_hook.i: tests/test_hook.cc.i
+
+.PHONY : tests/test_hook.i
+
+# target to preprocess a source file
+tests/test_hook.cc.i:
+	$(MAKE) -f CMakeFiles/test_hook.dir/build.make CMakeFiles/test_hook.dir/tests/test_hook.cc.i
+.PHONY : tests/test_hook.cc.i
+
+tests/test_hook.s: tests/test_hook.cc.s
+
+.PHONY : tests/test_hook.s
+
+# target to generate assembly for a file
+tests/test_hook.cc.s:
+	$(MAKE) -f CMakeFiles/test_hook.dir/build.make CMakeFiles/test_hook.dir/tests/test_hook.cc.s
+.PHONY : tests/test_hook.cc.s
+
 tests/test_iomanager.o: tests/test_iomanager.cc.o
 
 .PHONY : tests/test_iomanager.o
@@ -631,6 +752,7 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... test_iomanager"
 	@echo "... test_fiber"
+	@echo "... test_hook"
 	@echo "... test_assert"
 	@echo "... test_config"
 	@echo "... edit_cache"
@@ -641,9 +763,15 @@ help:
 	@echo "... src/config.o"
 	@echo "... src/config.i"
 	@echo "... src/config.s"
+	@echo "... src/fd_manager.o"
+	@echo "... src/fd_manager.i"
+	@echo "... src/fd_manager.s"
 	@echo "... src/fiber.o"
 	@echo "... src/fiber.i"
 	@echo "... src/fiber.s"
+	@echo "... src/hook.o"
+	@echo "... src/hook.i"
+	@echo "... src/hook.s"
 	@echo "... src/iomanager.o"
 	@echo "... src/iomanager.i"
 	@echo "... src/iomanager.s"
@@ -659,6 +787,9 @@ help:
 	@echo "... src/thread.o"
 	@echo "... src/thread.i"
 	@echo "... src/thread.s"
+	@echo "... src/timer.o"
+	@echo "... src/timer.i"
+	@echo "... src/timer.s"
 	@echo "... src/util.o"
 	@echo "... src/util.i"
 	@echo "... src/util.s"
@@ -674,6 +805,9 @@ help:
 	@echo "... tests/test_fiber.o"
 	@echo "... tests/test_fiber.i"
 	@echo "... tests/test_fiber.s"
+	@echo "... tests/test_hook.o"
+	@echo "... tests/test_hook.i"
+	@echo "... tests/test_hook.s"
 	@echo "... tests/test_iomanager.o"
 	@echo "... tests/test_iomanager.i"
 	@echo "... tests/test_iomanager.s"

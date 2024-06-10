@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "/home/leedong/Desktop/Project/conServer/bin/test_thread"
+			"path" : "/home/leedong/Desktop/Project/conServer/bin/test_hook"
 		}
 	],
 	"backtrace" : 1,
@@ -28,7 +28,7 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 39,
+				"line" : 66,
 				"parent" : 0
 			},
 			{
@@ -40,13 +40,13 @@
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 41,
+				"line" : 68,
 				"parent" : 0
 			},
 			{
 				"command" : 3,
 				"file" : 0,
-				"line" : 40,
+				"line" : 67,
 				"parent" : 0
 			},
 			{
@@ -97,7 +97,7 @@
 			"id" : "conServer::@6890427a1f51a3e7e1df"
 		}
 	],
-	"id" : "test_thread::@6890427a1f51a3e7e1df",
+	"id" : "test_hook::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -131,12 +131,16 @@
 			{
 				"fragment" : "/usr/local/lib/libyaml-cpp.a",
 				"role" : "libraries"
+			},
+			{
+				"fragment" : "-ldl",
+				"role" : "libraries"
 			}
 		],
 		"language" : "CXX"
 	},
-	"name" : "test_thread",
-	"nameOnDisk" : "test_thread",
+	"name" : "test_hook",
+	"nameOnDisk" : "test_hook",
 	"paths" : 
 	{
 		"build" : ".",
@@ -157,7 +161,7 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "tests/test_thread.cc",
+			"path" : "tests/test_hook.cc",
 			"sourceGroupIndex" : 0
 		}
 	],

@@ -2,6 +2,7 @@
 #include "log.h"
 #include "macro.h"
 #include "config.h"
+#include "hook.h"
 
 namespace coServer{
     
@@ -59,6 +60,7 @@ void Scheduler::start(){
     m_stopping = false;
     COSERVER_ASSERT(m_threads.empty());
     m_threads.resize(m_threadCount);
+    
     for(size_t i=0; i<m_threadCount; i++){
         // 创建线程
         m_threads[i].reset(new Thread(std::bind(&Scheduler::run, this), m_name + "_" + std::to_string(i)));
@@ -119,6 +121,7 @@ void Scheduler::setThis(){
 
 void Scheduler::run() {
     COSERVER_LOG_DEBUG(g_logger) << m_name << " run";
+    set_hook_enable(true);
     setThis();
     if(coServer::GetThreadId() != m_rootThread) {
         t_scheduler_fiber = Fiber::GetThis().get();

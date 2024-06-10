@@ -17,6 +17,8 @@ ucontext.h
 ../src/iomanager.h
 scheduler.h
 ../src/scheduler.h
+timer.h
+../src/timer.h
 
 ../src/log.h
 string
@@ -91,6 +93,16 @@ memory
 ../src/thread.h
 mutex.h
 ../src/mutex.h
+
+../src/timer.h
+memory
+-
+vector
+-
+set
+-
+thread.h
+../src/thread.h
 
 ../src/util.h
 pthread.h

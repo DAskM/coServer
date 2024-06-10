@@ -341,11 +341,11 @@ void IOManager::idle(){
 
     while(true) {
         uint64_t next_timeout = 0;
-        if(COSERVER_UNLIKELY(stopping(next_timeout))) {
-            COSERVER_LOG_INFO(g_logger) << "name=" << getName()
-                                     << " idle stopping exit";
-            break;
-        }
+        // if(COSERVER_UNLIKELY(stopping(next_timeout))) {
+        //     COSERVER_LOG_INFO(g_logger) << "name=" << getName()
+        //                              << " idle stopping exit";
+        //     break;
+        // }
 
         int rt = 0;
         do {
@@ -364,9 +364,9 @@ void IOManager::idle(){
         } while(true);
 
         std::vector<std::function<void()> > cbs;
-        // listExpiredCb(cbs);
+        listExpiredCb(cbs);
         if(!cbs.empty()) {
-            //SYLAR_LOG_DEBUG(g_logger) << "on timer cbs.size=" << cbs.size();
+            COSERVER_LOG_DEBUG(g_logger) << "on timer cbs.size=" << cbs.size();
             schedule(cbs.begin(), cbs.end());
             cbs.clear();
         }
@@ -432,6 +432,9 @@ void IOManager::idle(){
     }
 }
 
-
+void IOManager::onTimerInsertedAtFront(){
+    // 唤醒 epoll_wait ，重新计算时间
+    tickle();
+}
 
 }

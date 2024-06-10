@@ -21,7 +21,8 @@
 						4,
 						5,
 						6,
-						7
+						7,
+						8
 					]
 				}
 			],
@@ -43,7 +44,8 @@
 						4,
 						5,
 						6,
-						7
+						7,
+						8
 					]
 				}
 			],
@@ -52,56 +54,63 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "conServer::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-conServer-Debug-ae0b09a7fc4fb037d551.json",
+					"jsonFile" : "target-conServer-Debug-f9b10e02acf46cba4297.json",
 					"name" : "conServer",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "test::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-test-Debug-4a686347e1845202a9e3.json",
+					"jsonFile" : "target-test-Debug-fb1125cf6a2bd509ac32.json",
 					"name" : "test",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "test_assert::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-test_assert-Debug-fe3ecb26b6e56cbf1dd2.json",
+					"jsonFile" : "target-test_assert-Debug-3f574fc545af296f8e56.json",
 					"name" : "test_assert",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "test_config::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-test_config-Debug-fef001e7c7da8c56949c.json",
+					"jsonFile" : "target-test_config-Debug-aea34a2ae95fb16f3fa8.json",
 					"name" : "test_config",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "test_fiber::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-test_fiber-Debug-29f48103d94a86deaa25.json",
+					"jsonFile" : "target-test_fiber-Debug-40fc0768230cca69bb6c.json",
 					"name" : "test_fiber",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
+					"id" : "test_hook::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-test_hook-Debug-3e259c0871becbbc8a45.json",
+					"name" : "test_hook",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
 					"id" : "test_iomanager::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-test_iomanager-Debug-6a217977ab7b8767d9ff.json",
+					"jsonFile" : "target-test_iomanager-Debug-b5cf54e33f17251292b2.json",
 					"name" : "test_iomanager",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "test_scheduler::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-test_scheduler-Debug-d0e2d18f1da054d80b44.json",
+					"jsonFile" : "target-test_scheduler-Debug-8692833e3eedcc6428b2.json",
 					"name" : "test_scheduler",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "test_thread::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-test_thread-Debug-354df8fc94422a268fad.json",
+					"jsonFile" : "target-test_thread-Debug-be8fb631c2316a15322e.json",
 					"name" : "test_thread",
 					"projectIndex" : 0
 				}

@@ -212,10 +212,16 @@ CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 ENABLE_FRAME_POINTERS:BOOL=OFF
 
 //Path to a library.
+PTHREAD:FILEPATH=/usr/lib/x86_64-linux-gnu/libpthread.so
+
+//Path to a library.
 YAMLCPP:FILEPATH=/usr/local/lib/libyaml-cpp.a
 
 //Value Computed by CMake
 conServer_BINARY_DIR:STATIC=/home/leedong/Desktop/Project/conServer/build
+
+//Dependencies for the target
+conServer_LIB_DEPENDS:STATIC=general;-ldl;
 
 //Value Computed by CMake
 conServer_SOURCE_DIR:STATIC=/home/leedong/Desktop/Project/conServer

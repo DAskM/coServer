@@ -46,6 +46,13 @@ void test_fiber(){
     }
 }
 
+void test_timer() {
+    coServer::IOManager iom(2);
+    iom.addTimer(500, [](){
+        COSERVER_LOG_INFO(g_logger) << "hello timer";
+    }, true);
+}
+
 void test1(){
     std::cout << "EPOLLIN=" << EPOLLIN
         << " EPOLLOUT=" << EPOLLOUT << std::endl;
@@ -54,6 +61,6 @@ void test1(){
 }
 
 int main(){
-    test1();
+    test_timer();
     return 0;
 }

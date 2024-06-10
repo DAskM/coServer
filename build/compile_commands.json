@@ -11,6 +11,11 @@
 },
 {
   "directory": "/home/leedong/Desktop/Project/conServer/build",
+  "command": "/usr/bin/g++   -I/home/leedong/Desktop/Project/conServer/. -I/home/leedong/Desktop/Project/conServer/./src   -rdynamic -O0 -g -std=c++11 -Wall -Wno-deprecated -Werror -Wno-unused-function -g   -o CMakeFiles/test_hook.dir/tests/test_hook.cc.o -c /home/leedong/Desktop/Project/conServer/tests/test_hook.cc",
+  "file": "/home/leedong/Desktop/Project/conServer/tests/test_hook.cc"
+},
+{
+  "directory": "/home/leedong/Desktop/Project/conServer/build",
   "command": "/usr/bin/g++   -I/home/leedong/Desktop/Project/conServer/. -I/home/leedong/Desktop/Project/conServer/./src   -rdynamic -O0 -g -std=c++11 -Wall -Wno-deprecated -Werror -Wno-unused-function -g   -o CMakeFiles/test_assert.dir/tests/test_assert.cc.o -c /home/leedong/Desktop/Project/conServer/tests/test_assert.cc",
   "file": "/home/leedong/Desktop/Project/conServer/tests/test_assert.cc"
 },
@@ -73,5 +78,20 @@
   "directory": "/home/leedong/Desktop/Project/conServer/build",
   "command": "/usr/bin/g++  -DconServer_EXPORTS -I/home/leedong/Desktop/Project/conServer/. -I/home/leedong/Desktop/Project/conServer/./src   -rdynamic -O0 -g -std=c++11 -Wall -Wno-deprecated -Werror -Wno-unused-function -g -fPIC   -o CMakeFiles/conServer.dir/src/iomanager.cc.o -c /home/leedong/Desktop/Project/conServer/src/iomanager.cc",
   "file": "/home/leedong/Desktop/Project/conServer/src/iomanager.cc"
+},
+{
+  "directory": "/home/leedong/Desktop/Project/conServer/build",
+  "command": "/usr/bin/g++  -DconServer_EXPORTS -I/home/leedong/Desktop/Project/conServer/. -I/home/leedong/Desktop/Project/conServer/./src   -rdynamic -O0 -g -std=c++11 -Wall -Wno-deprecated -Werror -Wno-unused-function -g -fPIC   -o CMakeFiles/conServer.dir/src/timer.cc.o -c /home/leedong/Desktop/Project/conServer/src/timer.cc",
+  "file": "/home/leedong/Desktop/Project/conServer/src/timer.cc"
+},
+{
+  "directory": "/home/leedong/Desktop/Project/conServer/build",
+  "command": "/usr/bin/g++  -DconServer_EXPORTS -I/home/leedong/Desktop/Project/conServer/. -I/home/leedong/Desktop/Project/conServer/./src   -rdynamic -O0 -g -std=c++11 -Wall -Wno-deprecated -Werror -Wno-unused-function -g -fPIC   -o CMakeFiles/conServer.dir/src/fd_manager.cc.o -c /home/leedong/Desktop/Project/conServer/src/fd_manager.cc",
+  "file": "/home/leedong/Desktop/Project/conServer/src/fd_manager.cc"
+},
+{
+  "directory": "/home/leedong/Desktop/Project/conServer/build",
+  "command": "/usr/bin/g++  -DconServer_EXPORTS -I/home/leedong/Desktop/Project/conServer/. -I/home/leedong/Desktop/Project/conServer/./src   -rdynamic -O0 -g -std=c++11 -Wall -Wno-deprecated -Werror -Wno-unused-function -g -fPIC   -o CMakeFiles/conServer.dir/src/hook.cc.o -c /home/leedong/Desktop/Project/conServer/src/hook.cc",
+  "file": "/home/leedong/Desktop/Project/conServer/src/hook.cc"
 }
 ]

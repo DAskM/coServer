@@ -19,14 +19,21 @@ set(LIB_SRC
     src/mutex.cc
     src/fiber.cc
     src/scheduler.cc
-    src/iomanager.cc)
+    src/iomanager.cc
+    src/timer.cc
+    src/fd_manager.cc
+    src/hook.cc
+    )
 
 add_library(conServer SHARED ${LIB_SRC})
+target_link_libraries(conServer -ldl)
 
 set(LIB_LIB
     conServer
     pthread
     ${YAMLCPP})
+
+find_library(PTHREAD pthread)
 
 add_executable(test tests/test.cc)
 add_dependencies(test conServer)
@@ -55,6 +62,10 @@ target_link_libraries(test_scheduler ${LIB_LIB})
 add_executable(test_iomanager tests/test_iomanager.cc)
 add_dependencies(test_iomanager conServer)
 target_link_libraries(test_iomanager ${LIB_LIB})
+
+add_executable(test_hook tests/test_hook.cc)
+add_dependencies(test_hook conServer)
+target_link_libraries(test_hook ${LIB_LIB})
 
 SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 SET(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)

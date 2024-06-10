@@ -5,10 +5,11 @@
  *  基于Epoll的IO协程调度器
 */
 #include "scheduler.h"
+#include "timer.h"
 
 namespace coServer{
 
-class IOManager : public Scheduler{
+class IOManager : public Scheduler, public TimerManager{
 public:
     typedef std::shared_ptr<IOManager> ptr;
     typedef RWMutex RWMutexType;
@@ -84,6 +85,8 @@ protected:
     void contextResize(size_t size);
 
     bool stopping(uint64_t& timeout);
+
+    void onTimerInsertedAtFront() override;
 private:
     int m_epfd = 0;         // epoll 文件句柄
     int m_tickleFds[2];     // pipe 文件句柄

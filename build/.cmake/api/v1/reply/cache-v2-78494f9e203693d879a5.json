@@ -1134,6 +1134,18 @@
 			"value" : "OFF"
 		},
 		{
+			"name" : "PTHREAD",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Path to a library."
+				}
+			],
+			"type" : "FILEPATH",
+			"value" : "/usr/lib/x86_64-linux-gnu/libpthread.so"
+		},
+		{
 			"name" : "YAMLCPP",
 			"properties" : 
 			[
@@ -1156,6 +1168,18 @@
 			],
 			"type" : "STATIC",
 			"value" : "/home/leedong/Desktop/Project/conServer/build"
+		},
+		{
+			"name" : "conServer_LIB_DEPENDS",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Dependencies for the target"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "general;-ldl;"
 		},
 		{
 			"name" : "conServer_SOURCE_DIR",

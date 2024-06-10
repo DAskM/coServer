@@ -10,5 +10,6 @@ CMakeFiles/test_iomanager.dir/tests/test_iomanager.cc.o
  ../src/scheduler.h
  ../src/singleton.h
  ../src/thread.h
+ ../src/timer.h
  ../src/util.h
  /home/leedong/Desktop/Project/conServer/tests/test_iomanager.cc
